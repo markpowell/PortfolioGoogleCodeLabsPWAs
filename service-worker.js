@@ -4,9 +4,12 @@ const precacheResources = [
   '/',
   'index.html',
   'styles/main.css',
-  'images/space1.jpg',
-  'images/space2.jpg',
-  'images/space3.jpg'
+  'images/Bullslaughter_bay.jpeg',
+  'images/a_very_cold_evening.jpeg',
+  'images/Snowdonia.jpeg',
+  'images/llanberis_path.jpeg',
+  'images/Whitesands_Bay.jpeg',
+  'images/North_Wales.jpeg'
 ];
 
 self.addEventListener('install', event => {

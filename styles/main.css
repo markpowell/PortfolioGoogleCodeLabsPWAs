@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 html {
-  background-color: #FF9800;
+  background-color: rgba(0, 255, 55, 0.5);
 }
 
 body {
@@ -29,7 +29,7 @@ body {
 }
 
 header {
-  background-color: #FF9800;
+  background-color: rgba(0, 128, 0, 0.5);
   box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),
               0 3px 1px -2px rgba(0,0,0,.2),
               0 1px 5px 0 rgba(0,0,0,.12);
@@ -38,6 +38,7 @@ header {
   justify-content: center;
   padding: 10px;
   width: 100%;
+  color:white;
 }
 
 .banner {
@@ -48,7 +49,7 @@ header {
 }
 
 button {
-  background-color: #ff9800;
+  background-color: rgba(0, 128, 0, 0.5);
   border: none;
   border-radius: 2px;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
@@ -110,13 +111,11 @@ a {
 }
 
 footer {
-  align-items: center;
-  background-color: #FF9800;
+  text-align: center;
+  background-color:rgba(0, 128, 0, 0.5);
   box-sizing: border-box;
-  display: flex;
   height: 7vh;
-  justify-content: center;
   min-height: 50px;
-  padding: 10px;
+  padding: 20px;
   width: 100%;
 }
