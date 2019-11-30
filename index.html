@@ -48,56 +48,91 @@ limitations under the License.
 
 <body>
   <header>
-    <h1>Space Missions</h1>
+    <h1>Beutiful Wales</h1>
   </header>
   <main>
+    <section id="installBanner" class="banner">
+      <button id="installBtn">Install app</button>
+    </section>
     <section class="card">
       <div class="img-container">
-        <!-- CC0 image from https://unsplash.com/photos/NuE8Nu3otjo -->
-        <img src="images/space1.jpg" alt="The earth as caputured from space, illumnitated by cosmic radiation">
+        <!-- CC0 image from https://unsplash.com/photos/qPm99GV4JW8 -->
+        <img src="images/Bullslaughter_bay.jpeg" alt="Bullslaughter Bay, Castlemartin, Wales">
       </div>
       <p>
-        Bavarian bergkase port-salut ricotta. Cheese on toast say cheese cheese
-        strings pecorino fromage frais roquefort danish fontina emmental.
-        Bishop everyone loves jarlsberg stilton swiss cauliflower cheese fondue
-        wiss. Cottage cheese lancashire taleggio goat parmesan.
+        Bullslaughter Bay, Castlemartin, Wales
+        Ian Cylkowski
+        @iancylkowskiphotography
       </p>
     </section>
     <section class="card">
       <div class="img-container">
         <!--CC0 image from https://unsplash.com/photos/cIX5TlQ_FgM -->
-        <img src="images/space2.jpg" alt="Looking through the inside of space equipment">
+        <img src="images/a_very_cold_evening.jpeg" alt="Wales, United Kingdom">
       </div>
       <p>
-        Bavarian bergkase port-salut ricotta. Cheese on toast say cheese cheese
-        strings pecorino fromage frais roquefort danish fontina emmental.
-        Bishop everyone loves jarlsberg stilton swiss cauliflower cheese fondue
-        wiss. Cottage cheese lancashire taleggio goat parmesan.
+        Wales, United Kingdom
+        A very cold evening made up for by the amazing sound of the waves crashing against the rocks and a beautiful
+        golden sunset. Sometimes it’s worth getting your feet wet for a photo ;)
+        Joshua Earle
+        @joshuaearle
       </p>
     </section>
     <section class="card">
       <div class="img-container">
         <!-- CC0 image from https://unsplash.com/photos/n463SoeSiVY -->
-        <img src="images/space3.jpg" alt="A spacecraft launches into the night sky">
+        <img src="images/Snowdonia.jpeg" alt="Snowdonia National Park, United Kingdom">
       </div>
       <p>
-        Bavarian bergkase port-salut ricotta. Cheese on toast say cheese cheese
-        strings pecorino fromage frais roquefort danish fontina emmental.
-        Bishop everyone loves jarlsberg stilton swiss cauliflower cheese fondue
-        wiss. Cottage cheese lancashire taleggio goat parmesan.
+        Snowdonia National Park, United Kingdom
+        View on Snowdonia valley
+        Timothy Salter-Hewitt
+        @llandrillo
+      </p>
+    </section>
+    <section class="card">
+      <div class="img-container">
+        <!-- CC0 image from https://unsplash.com/photos/n463SoeSiVY -->
+        <img src="images/llanberis_path.jpeg" alt="Llanberis Path, Caernarfon LL55 4UL, UK, Gwynedd, United Kingdom">
+      </div>
+      <p>
+        Llanberis Path, Caernarfon LL55 4UL, UK, Gwynedd, United Kingdom
+        Appreciating the view from the top of the Snowdon summit in Wales, on a hot summer day.
+        Cat Bassano
+        @catbassano
+      </p>
+    </section>
+    <section class="card">
+      <div class="img-container">
+        <!-- CC0 image from https://unsplash.com/photos/n463SoeSiVY -->
+        <img src="images/Whitesands_Bay.jpeg" alt="Whitesands Bay, Saint David's, United Kingdom">
+      </div>
+      <p>
+        Whitesands Bay, Saint David's, United Kingdom
+        Jonathan Bean
+        @jonathanbean
+      </p>
+    </section>
+    <section class="card">
+      <div class="img-container">
+        <!-- CC0 image from https://unsplash.com/photos/n463SoeSiVY -->
+        <img src="images/North_Wales.jpeg" alt="North Wales, United Kingdom">
+      </div>
+      <p>
+        North Wales, United Kingdom
+        Summer day on the coast.
+        Pauline Amphlett
+        @paulineamphlett02
       </p>
     </section>
   </main>
   <footer>
     <ul class="flex-list">
-      <li><a href="#home">home</a></li>
-      <li><a href="#share">share</a></li>
-      <li><a href="#contact">contact</a></li>
-      <li><a href="#about">about</a></li>
+      <li>Images from Unsplash</li>
     </ul>
   </footer>
 
-  <!-- TODO Register the service worker -->
+  <!-- Register the service worker -->
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', function () {
@@ -111,6 +146,47 @@ limitations under the License.
       });
     }
   </script>
+  <script>
+    let deferredPrompt;
+    window.addEventListener('beforeinstallprompt', event => {
+
+      // Prevent Chrome 67 and earlier from automatically showing the prompt
+      event.preventDefault();
+
+      // Stash the event so it can be triggered later.
+      deferredPrompt = event;
+
+      // Attach the install prompt to a user gesture
+      document.querySelector('#installBtn').addEventListener('click', event => {
+
+        // Show the prompt
+        deferredPrompt.prompt();
+
+        // Wait for the user to respond to the prompt
+        deferredPrompt.userChoice
+          .then((choiceResult) => {
+            if (choiceResult.outcome === 'accepted') {
+              console.log('User accepted the A2HS prompt');
+            } else {
+              console.log('User dismissed the A2HS prompt');
+            }
+            deferredPrompt = null;
+          });
+      });
+
+      // Update UI notify the user they can add to home screen
+      document.querySelector('#installBanner').style.display = 'flex';
+    });
+  </script>
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="/__/firebase/7.5.0/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="/__/firebase/7.5.0/firebase-analytics.js"></script>
+
+  <!-- Initialize Firebase -->
+  <script src="/__/firebase/init.js"></script>
 </body>
 
 </html>
