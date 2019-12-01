@@ -1,5 +1,5 @@
 
-const cacheName = 'cache-v1';
+const cacheName = 'cache-v2';
 const precacheResources = [
   '/',
   'index.html',
